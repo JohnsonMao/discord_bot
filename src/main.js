@@ -1,12 +1,12 @@
-import { Client, Events, GatewayIntentBits } from 'discord.js';
-import dotenv from 'dotenv';
+import { Client, GatewayIntentBits } from 'discord.js'
+import dotenv from 'dotenv'
+import { loadCommands, loadEvents } from './core/loader'
 
-dotenv.config();
+dotenv.config()
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
-client.once(Events.ClientReady, (c) => {
-    console.log(`Ready! Logged in as ${c.user.username}#${c.user.discriminator}`);
-});
+loadCommands()
+loadEvents(client)
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN)
