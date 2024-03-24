@@ -10,7 +10,7 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
-  "ignorePatterns": ["dist", "tests/**", "cypress/**"],
+  "ignorePatterns": ["dist"],
   "parserOptions": { "ecmaVersion": "latest", "sourceType": "module" },
   "settings": { "react": { "version": "18.2" } },
   "plugins": ["react-refresh"],
