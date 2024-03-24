@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import generateRouteConfig from './generateRouteConfig';
 
-function Router() {
-  const routeConfig = generateRouteConfig();
-  const router = createBrowserRouter(routeConfig);
+const routeConfig = generateRouteConfig();
+const router = createBrowserRouter(routeConfig);
 
+function Router() {
   return <RouterProvider router={router} />;
 }
 

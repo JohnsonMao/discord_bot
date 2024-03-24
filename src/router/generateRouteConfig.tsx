@@ -1,6 +1,7 @@
 import type { RouteObject } from "react-router-dom";
 import generatePathConfig, { PathConfig } from "./generatePathConfig";
 import withSuspense, { Importer } from "./withSuspense";
+import ErrorBoundary from "./ErrorBoundary";
 
 function checkImporter(importer: PathConfig | Importer): Importer | undefined {
   return typeof importer === "function" ? importer : undefined;
@@ -29,7 +30,7 @@ function mapPathConfigToRoute(config: PathConfig): RouteObject[] {
     return {
       path: routePath.match(/^\(.*\)$/) ? "" : routePath,
       element: withSuspense(checkImporter(layout)),
-      errorElement: "error",
+      ErrorBoundary,
       children,
     };
   });
