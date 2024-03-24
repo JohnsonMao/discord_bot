@@ -5,7 +5,7 @@ export interface PathConfig {
   [path: string]: Importer | PathConfig;
 }
 
-/** 根據 `/pages/[file].tsx` 下的資料夾結構生成對應 url 的頁面 */
+/** 根據 `/src/pages/[file].tsx` 下的資料夾結構生成對應 url 的頁面 */
 export default function generatePathConfig(): PathConfig {
   const modules = import.meta.glob<boolean, string, { default: ComponentType }>(
     ["../pages/**/{page,layout,not_found}.tsx"]
