@@ -5,7 +5,10 @@ export interface PathConfig {
   [path: string]: Importer | PathConfig;
 }
 
-/** 根據 `/src/pages/[file].tsx` 下的資料夾結構生成對應 url 的頁面 */
+/**
+ * Generate pages corresponding to the URL based on the folder structure under `/src/pages/[file].tsx`.
+ * Incorporate the Next.js app route style.
+ */
 export default function generatePathConfig(): PathConfig {
   const modules = import.meta.glob<boolean, string, { default: ComponentType }>(
     ["../pages/**/{page,layout,not_found}.tsx"]

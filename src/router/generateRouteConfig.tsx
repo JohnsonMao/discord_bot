@@ -7,7 +7,6 @@ function checkImporter(importer: PathConfig | Importer): Importer | undefined {
   return typeof importer === "function" ? importer : undefined;
 }
 
-/** pathConfig 轉換成 routeConfig */
 function mapPathConfigToRoute(config: PathConfig): RouteObject[] {
   return Object.entries(config).map(([routePath, child]) => {
     if (typeof child === "function") {
